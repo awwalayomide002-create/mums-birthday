@@ -43,9 +43,10 @@ body {
         );
 }
 
-/* =========================
+
+/* =================================
    WELCOME SCREEN
-========================= */
+================================= */
 
 .welcome {
     min-height: 100vh;
@@ -159,9 +160,10 @@ body {
     font-size: 17px;
 }
 
-/* =========================
-   BUTTON
-========================= */
+
+/* =================================
+   BUTTONS
+================================= */
 
 button {
     border: none;
@@ -211,9 +213,10 @@ button {
         0 15px 50px rgba(246,210,122,0.45);
 }
 
-/* =========================
+
+/* =================================
    BIRTHDAY PAGE
-========================= */
+================================= */
 
 .birthday {
     min-height: 100vh;
@@ -260,9 +263,10 @@ button {
         0 0 15px rgba(246,210,122,0.7);
 }
 
-/* =========================
+
+/* =================================
    CAKE
-========================= */
+================================= */
 
 .cake-wrapper {
     width: 280px;
@@ -373,6 +377,7 @@ button {
     right: 35px;
 }
 
+
 /* Candle */
 
 .candle {
@@ -396,6 +401,7 @@ button {
         );
 }
 
+
 /* Flame */
 
 .flame {
@@ -409,7 +415,7 @@ button {
     width: 17px;
     height: 27px;
 
-    border-radius: 50% 50% 50% 50%;
+    border-radius: 50%;
 
     background: #ffd75a;
 
@@ -417,12 +423,14 @@ button {
         0 0 15px #ffbd32,
         0 0 35px #ff8c00;
 
-    animation: flame 0.7s ease-in-out infinite alternate;
+    animation:
+        flame 0.7s ease-in-out infinite alternate;
 }
 
-/* =========================
+
+/* =================================
    MESSAGE CARD
-========================= */
+================================= */
 
 .message-card {
     max-width: 700px;
@@ -448,7 +456,8 @@ button {
         0 30px 80px rgba(0,0,0,0.35),
         inset 0 0 35px rgba(255,255,255,0.025);
 
-    animation: cardAppear 1s ease;
+    animation:
+        cardAppear 1s ease;
 }
 
 .message-heart {
@@ -456,7 +465,8 @@ button {
 
     margin-bottom: 15px;
 
-    animation: heartbeat 1.2s infinite;
+    animation:
+        heartbeat 1.2s infinite;
 }
 
 .message-card h3 {
@@ -501,9 +511,175 @@ button {
     margin-top: 40px;
 }
 
-/* =========================
+
+/* =================================
+   PHOTO GALLERY
+================================= */
+
+.photo-section {
+    position: relative;
+
+    margin-top: 70px;
+
+    padding: 55px 25px;
+
+    border-radius: 35px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(246, 210, 122, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(190, 90, 220, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.08),
+            rgba(80,25,100,0.25)
+        );
+
+    border: 1px solid rgba(246,210,122,0.3);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.4),
+        inset 0 0 60px rgba(246,210,122,0.04);
+
+    backdrop-filter: blur(15px);
+
+    overflow: hidden;
+}
+
+
+/* Decorative stars */
+
+.photo-section::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 20px;
+    left: 30px;
+
+    font-size: 35px;
+
+    color: var(--gold);
+
+    opacity: 0.6;
+
+    animation:
+        particleFloat 3s ease-in-out infinite;
+}
+
+.photo-section::after {
+    content: "✧";
+
+    position: absolute;
+
+    bottom: 20px;
+    right: 30px;
+
+    font-size: 40px;
+
+    color: var(--gold-light);
+
+    opacity: 0.6;
+
+    animation:
+        particleFloat 4s ease-in-out infinite;
+}
+
+
+.photo-section h3 {
+    color: var(--gold-light);
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+}
+
+
+.photo-gallery {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.photo-card {
+    position: relative;
+
+    width: 240px;
+
+    padding: 10px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.14),
+            rgba(255,255,255,0.04)
+        );
+
+    border: 1px solid rgba(246,210,122,0.4);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.45),
+        0 0 25px rgba(246,210,122,0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+    overflow: hidden;
+}
+
+
+.photo-card:hover {
+    transform:
+        translateY(-12px)
+        rotate(1deg);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.5),
+        0 0 35px rgba(246,210,122,0.25);
+}
+
+
+.photo-card img {
+    width: 100%;
+
+    height: 330px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.photo-card:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =================================
    FOOTER
-========================= */
+================================= */
 
 .footer {
     margin-top: 60px;
@@ -515,9 +691,24 @@ button {
     letter-spacing: 1px;
 }
 
-/* =========================
+.footer span {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    color: var(--gold);
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    font-style: italic;
+}
+
+
+/* =================================
    BALLOONS
-========================= */
+================================= */
 
 .balloon {
     position: fixed;
@@ -528,7 +719,8 @@ button {
 
     pointer-events: none;
 
-    animation: balloonFloat 7s ease-in-out infinite;
+    animation:
+        balloonFloat 7s ease-in-out infinite;
 }
 
 .balloon1 {
@@ -557,9 +749,10 @@ button {
     animation-delay: 4s;
 }
 
-/* =========================
+
+/* =================================
    PARTICLES
-========================= */
+================================= */
 
 .particles span {
     position: fixed;
@@ -572,7 +765,8 @@ button {
 
     opacity: 0.7;
 
-    animation: particleFloat 4s ease-in-out infinite;
+    animation:
+        particleFloat 4s ease-in-out infinite;
 }
 
 .particles span:nth-child(1) {
@@ -629,17 +823,19 @@ button {
     animation-delay: 2.2s;
 }
 
-/* =========================
+
+/* =================================
    HIDDEN STATE
-========================= */
+================================= */
 
 .hidden {
     display: none;
 }
 
-/* =========================
+
+/* =================================
    CONFETTI
-========================= */
+================================= */
 
 .confetti {
     position: fixed;
@@ -657,23 +853,31 @@ button {
         confettiFall 4s linear forwards;
 }
 
-/* =========================
+
+/* =================================
    ANIMATIONS
-========================= */
+================================= */
 
 @keyframes welcomeAppear {
 
     from {
         opacity: 0;
-        transform: scale(0.92) translateY(30px);
+
+        transform:
+            scale(0.92)
+            translateY(30px);
     }
 
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 
 }
+
 
 @keyframes goldShine {
 
@@ -687,59 +891,74 @@ button {
 
 }
 
+
 @keyframes crownFloat {
 
-    0%,100% {
-        transform: translateY(0);
+    0%, 100% {
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform:
+            translateY(-10px);
     }
 
 }
+
 
 @keyframes buttonPulse {
 
-    0%,100% {
+    0%, 100% {
         box-shadow:
-            0 10px 35px rgba(246,210,122,0.2);
+            0 10px 35px
+            rgba(246,210,122,0.2);
     }
 
     50% {
         box-shadow:
-            0 10px 55px rgba(246,210,122,0.5);
+            0 10px 55px
+            rgba(246,210,122,0.5);
     }
 
 }
+
 
 @keyframes flame {
 
     from {
-        transform: scale(1) rotate(-2deg);
+        transform:
+            scale(1)
+            rotate(-2deg);
     }
 
     to {
-        transform: scale(1.15) rotate(3deg);
+        transform:
+            scale(1.15)
+            rotate(3deg);
     }
 
 }
+
 
 @keyframes heartbeat {
 
-    0%,100% {
-        transform: scale(1);
+    0%, 100% {
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.2);
+        transform:
+            scale(1.2);
     }
 
 }
 
+
 @keyframes balloonFloat {
 
-    0%,100% {
+    0%, 100% {
         transform:
             translateY(0)
             rotate(-5deg);
@@ -753,35 +972,46 @@ button {
 
 }
 
+
 @keyframes particleFloat {
 
-    0%,100% {
-        transform: translateY(0) scale(0.7);
+    0%, 100% {
+        transform:
+            translateY(0)
+            scale(0.7);
 
         opacity: 0.3;
     }
 
     50% {
-        transform: translateY(-20px) scale(1.2);
+        transform:
+            translateY(-20px)
+            scale(1.2);
 
         opacity: 1;
     }
 
 }
+
 
 @keyframes cardAppear {
 
     from {
         opacity: 0;
-        transform: translateY(40px);
+
+        transform:
+            translateY(40px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
 }
+
 
 @keyframes confettiFall {
 
@@ -795,9 +1025,10 @@ button {
 
 }
 
-/* =========================
+
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media (max-width: 600px) {
 
@@ -837,14 +1068,29 @@ button {
         font-size: 15px;
     }
 
+    .photo-section {
+        padding: 45px 15px;
+    }
+
+    .photo-section h3 {
+        font-size: 27px;
+    }
+
+    .photo-gallery {
+        gap: 20px;
+    }
+
+    .photo-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .photo-card img {
+        height: 380px;
+    }
+
     .balloon {
         font-size: 38px;
     }
-.footer span {
-    display: inline-block;
-    margin-top: 10px;
-    color: var(--gold);
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-style: italic;
+
 }
