@@ -1,0 +1,850 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #f6d27a;
+    --gold-light: #fff1b8;
+    --purple: #170b2e;
+    --purple-light: #4b1d63;
+    --pink: #ff6f91;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #6b2a76 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            #3b174f 0%,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #090513,
+            #1b0b2d,
+            #10071d
+        );
+}
+
+/* =========================
+   WELCOME SCREEN
+========================= */
+
+.welcome {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+    z-index: 5;
+}
+
+.welcome-content {
+    width: min(800px, 100%);
+
+    padding: 55px 30px;
+
+    border: 1px solid rgba(246, 210, 122, 0.35);
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.5),
+        inset 0 0 40px rgba(255,255,255,0.03);
+
+    animation: welcomeAppear 1.2s ease;
+}
+
+.crown {
+    font-size: 55px;
+
+    color: var(--gold);
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 20px rgba(246,210,122,0.7);
+
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+.eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+}
+
+.welcome h1 {
+    font-size: clamp(50px, 10vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    text-shadow:
+        0 10px 40px rgba(0,0,0,0.5);
+}
+
+.welcome h1 span {
+    display: block;
+
+    margin-top: 12px;
+
+    font-style: italic;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d9a63a,
+            #fff0ae,
+            #f6d27a,
+            #fff0ae,
+            #d9a63a
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation: goldShine 5s linear infinite;
+}
+
+.welcome-text {
+    max-width: 580px;
+
+    margin: 30px auto;
+
+    color: #e8dce9;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+#openBtn,
+.celebrate-btn {
+    padding: 17px 32px;
+
+    border-radius: 50px;
+
+    color: #24102b;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9a63a,
+            #fff0ae,
+            #d9a63a
+        );
+
+    background-size: 200%;
+
+    box-shadow:
+        0 10px 35px rgba(246,210,122,0.25);
+
+    transition: 0.35s;
+
+    animation: buttonPulse 2.5s infinite;
+}
+
+#openBtn:hover,
+.celebrate-btn:hover {
+    transform: translateY(-5px) scale(1.04);
+
+    background-position: right;
+
+    box-shadow:
+        0 15px 50px rgba(246,210,122,0.45);
+}
+
+/* =========================
+   BIRTHDAY PAGE
+========================= */
+
+.birthday {
+    min-height: 100vh;
+
+    padding: 90px 20px;
+
+    text-align: center;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 4;
+}
+
+.birthday h2 {
+    font-size: clamp(42px, 8vw, 75px);
+
+    font-weight: 400;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 30px rgba(246,210,122,0.25);
+}
+
+.gold-line {
+    width: 100px;
+    height: 2px;
+
+    margin: 20px auto 40px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(246,210,122,0.7);
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-wrapper {
+    width: 280px;
+    height: 260px;
+
+    position: relative;
+
+    margin: 20px auto 45px;
+}
+
+.plate {
+    position: absolute;
+
+    bottom: 15px;
+    left: 20px;
+
+    width: 240px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.5);
+}
+
+.cake-body {
+    position: absolute;
+
+    bottom: 38px;
+    left: 50px;
+
+    width: 180px;
+    height: 105px;
+
+    border-radius: 12px 12px 20px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffdce5,
+            #d887a0
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35);
+}
+
+.cake-top {
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 125px;
+    left: 50px;
+
+    width: 180px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #fff5f7;
+
+    box-shadow:
+        inset 0 -8px 15px rgba(180,80,110,0.15);
+}
+
+.icing {
+    position: absolute;
+
+    left: 0;
+    top: 15px;
+
+    width: 100%;
+    height: 35px;
+
+    border-radius: 0 0 50% 50%;
+
+    background: #fff5f7;
+}
+
+.cake-decoration {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    bottom: 20px;
+
+    box-shadow:
+        0 0 10px rgba(246,210,122,0.5);
+}
+
+.cake-decoration.one {
+    left: 35px;
+}
+
+.cake-decoration.two {
+    left: 84px;
+}
+
+.cake-decoration.three {
+    right: 35px;
+}
+
+/* Candle */
+
+.candle {
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 165px;
+    left: 130px;
+
+    width: 20px;
+    height: 65px;
+
+    border-radius: 5px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #f6d27a 0 8px,
+            #fff 8px 16px
+        );
+}
+
+/* Flame */
+
+.flame {
+    position: absolute;
+
+    z-index: 10;
+
+    bottom: 225px;
+    left: 132px;
+
+    width: 17px;
+    height: 27px;
+
+    border-radius: 50% 50% 50% 50%;
+
+    background: #ffd75a;
+
+    box-shadow:
+        0 0 15px #ffbd32,
+        0 0 35px #ff8c00;
+
+    animation: flame 0.7s ease-in-out infinite alternate;
+}
+
+/* =========================
+   MESSAGE CARD
+========================= */
+
+.message-card {
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 45px 35px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.1),
+            rgba(255,255,255,0.035)
+        );
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35),
+        inset 0 0 35px rgba(255,255,255,0.025);
+
+    animation: cardAppear 1s ease;
+}
+
+.message-heart {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+.message-card h3 {
+    color: var(--gold);
+
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+.message-card p {
+    color: #eee3ed;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+}
+
+.message-card .final-message {
+    color: var(--gold-light);
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    margin-top: 25px;
+}
+
+.message-card strong {
+    display: block;
+
+    color: #fff1b8;
+
+    font-size: 20px;
+
+    margin-top: 20px;
+}
+
+.celebrate-btn {
+    margin-top: 40px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 60px;
+
+    color: #a998aa;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloon {
+    position: fixed;
+
+    font-size: 55px;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation: balloonFloat 7s ease-in-out infinite;
+}
+
+.balloon1 {
+    left: 4%;
+    top: 20%;
+}
+
+.balloon2 {
+    right: 5%;
+    top: 15%;
+
+    animation-delay: 1.5s;
+}
+
+.balloon3 {
+    left: 8%;
+    bottom: 15%;
+
+    animation-delay: 3s;
+}
+
+.balloon4 {
+    right: 8%;
+    bottom: 12%;
+
+    animation-delay: 4s;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles span {
+    position: fixed;
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    opacity: 0.7;
+
+    animation: particleFloat 4s ease-in-out infinite;
+}
+
+.particles span:nth-child(1) {
+    left: 15%;
+    top: 15%;
+}
+
+.particles span:nth-child(2) {
+    left: 30%;
+    top: 70%;
+
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(3) {
+    left: 75%;
+    top: 20%;
+
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(4) {
+    left: 85%;
+    top: 65%;
+
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(5) {
+    left: 50%;
+    top: 10%;
+
+    animation-delay: 1.5s;
+}
+
+.particles span:nth-child(6) {
+    left: 20%;
+    top: 45%;
+
+    animation-delay: 2.5s;
+}
+
+.particles span:nth-child(7) {
+    left: 70%;
+    top: 80%;
+
+    animation-delay: 1.2s;
+}
+
+.particles span:nth-child(8) {
+    left: 90%;
+    top: 40%;
+
+    animation-delay: 2.2s;
+}
+
+/* =========================
+   HIDDEN STATE
+========================= */
+
+.hidden {
+    display: none;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 10px;
+    height: 14px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall 4s linear forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes welcomeAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+@keyframes goldShine {
+
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 300%;
+    }
+
+}
+
+@keyframes crownFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+@keyframes buttonPulse {
+
+    0%,100% {
+        box-shadow:
+            0 10px 35px rgba(246,210,122,0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 55px rgba(246,210,122,0.5);
+    }
+
+}
+
+@keyframes flame {
+
+    from {
+        transform: scale(1) rotate(-2deg);
+    }
+
+    to {
+        transform: scale(1.15) rotate(3deg);
+    }
+
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+@keyframes balloonFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-35px)
+            rotate(5deg);
+    }
+
+}
+
+@keyframes particleFloat {
+
+    0%,100% {
+        transform: translateY(0) scale(0.7);
+
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.2);
+
+        opacity: 1;
+    }
+
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .welcome {
+        padding: 20px;
+    }
+
+    .welcome-content {
+        padding: 45px 22px;
+
+        border-radius: 25px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .welcome-text {
+        font-size: 15px;
+    }
+
+    .birthday {
+        padding: 70px 18px;
+    }
+
+    .message-card {
+        padding: 35px 22px;
+    }
+
+    .message-card h3 {
+        font-size: 28px;
+    }
+
+    .message-card p {
+        font-size: 15px;
+    }
+
+    .balloon {
+        font-size: 38px;
+    }
+.footer span {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-style: italic;
+}
